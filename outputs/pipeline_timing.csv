@@ -1,0 +1,8 @@
+Step,Seconds
+Data Load,19.16
+Classification,1357.88
+NER + Role,4329.02
+Summarisation,123.00
+Total,5829.06
+Classifier Model,N/A
+Sample Size,200
