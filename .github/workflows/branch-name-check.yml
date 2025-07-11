@@ -1,0 +1,23 @@
+#-------Enforces Proper Naming of branches
+name: Enforce Branch Naming Conventions
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  branch-name-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Enforce Branch Naming Convention
+      run: |
+        if [[ "${{ github.event.pull_request.head.ref }}" =~ ^(dev|feature\/.+|bugfix\/.+|release\/.+|hotfix\/.+)$ ]]; then
+          echo "Branch name follows the convention."
+        else
+          echo "Branch name does not follow the convention. Please use one of the following patterns: dev, feature/<short-description>, bugfix/<short-description>, release/<version-number>, hotfix/<short-description>."
+          exit 1
+        fi

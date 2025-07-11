@@ -1,0 +1,30 @@
+# Core NLP + ML libraries
+transformers
+torch
+spacy
+nltk
+scikit-learn
+pandas
+tqdm
+requests
+
+# Visualization
+matplotlib
+seaborn
+
+# Testing & Coverage
+pytest
+pytest-cov
+
+# Linting / Formatting
+black
+flake8
+ruff
+pylint
+bandit
+
+# Optional markdown to PDF (for report generation)
+pandocfilters>=1.5.0
+
+# Optional: Upload coverage reports (future CI/CD use)
+coverage>=7.5.3

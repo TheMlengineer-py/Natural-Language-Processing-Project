@@ -1,0 +1,31 @@
+# config/pipeline.yaml
+
+#makes infrastructure configurable
+#Lightweight model utilized for faster execution time due to CPU limited capacity
+
+pipeline:
+  sample_size: 200  # Number of articles to process (0 = full dataset)
+
+classifier:
+  model: "valhalla/distilbart-mnli-12-1"     # Lightweight zero-shot model #200 articles used#
+  fast_model: "valhalla/distilbart-mnli-12-1"
+  use_fast: false
+  top_k: 1
+  max_length: 1024
+
+ner:
+  spacy_model: "en_core_web_sm"             # Lightweight spaCy model #200 articles used#
+  role_classifier_model: "valhalla/distilbart-mnli-12-1"
+  role_labels:
+    - Politician
+    - Musician
+    - TV Personality
+    - Film Actor
+    - Author
+    - Business Executive
+
+summarizer:
+  model: "sshleifer/distilbart-cnn-12-6"    # Lightweight summarization model #200 articles used#
+  max_length: 80
+  min_length: 30
+  do_sample: false
