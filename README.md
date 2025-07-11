@@ -16,12 +16,6 @@ This project solves the **HMLR Data Scientist Challenge (NLP Task 1)** using mod
 
 ---
 
-## Repo Structure
-
-![img.png](img.png)
-
-
-
 ## how to run
 
 ```bash
@@ -33,5 +27,3 @@ pip install -r requirements.txt
 # Run the full pipeline
 python main.py
 
-## architecture diagram
-![img_1.png](img_1.png)
