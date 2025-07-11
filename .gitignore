@@ -24,7 +24,7 @@ htmlcov/
 Thumbs.db
 
 # Output and data directories
-outputs/
+
 data/
 
 # Logs

@@ -1,0 +1,8 @@
+Step,Seconds
+Data Load,0.62
+Classification,0.01
+NER + Role,0.00
+Summarisation,0.00
+Total,0.63
+Classifier Model,N/A
+Sample Size,2

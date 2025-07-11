@@ -2,16 +2,13 @@
 
 This project solves the **HMLR Data Scientist Challenge (NLP Task 1)** using modern LLMs, spaCy, and transformers with an agent-style modular design.
 
----
-
-##  Features
+##  Ml Features & Workflow
 
 -  BBC dataset ingestion and cleaning
--  Sub-category classification using zero-shot LLMs (BART, T5)
+-  Sub-category classification using zero-shot LLMs
 -  Named Entity Recognition + Role classification via LLM reasoning
 -  April event summarisation using BART
 -  Evaluation: F1 Score, Confusion Matrix
--  Model comparison between BART and T5
 - Agent-friendly tools (LangChain-compatible)
 
 ---
