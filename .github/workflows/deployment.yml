@@ -1,0 +1,91 @@
+# -------------deployment pipeline starts here----------#
+name: Python CI/CD Pipeline Checks & Apply
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - uat
+      - feature/**
+      - release/**
+      - bugfix/**
+      - hotfix/**
+  pull_request:
+    branches:
+      - main
+      - dev
+      - uat
+      - feature/**
+      - release/**
+      - bugfix/**
+      - hotfix/**
+
+jobs:
+  checks-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests with pytest
+      run: |
+        pip install pytest
+        pytest tests/ --disable-warnings --maxfail=1
+      continue-on-error: true
+
+    - name: Lint Python files with flake8
+      run: |
+        pip install flake8
+        flake8 module/ agents/ tests/ main.py
+      continue-on-error: true
+
+    - name: Format code with Black (check only)
+      run: |
+        pip install black
+        black module/ agents/ tests/ main.py  --check --diff
+      continue-on-error: true
+
+    - name: Lint and fix code with Ruff
+      run: |
+        pip install ruff
+        ruff check module/ agents/ tests/ main.py --fix --exit-zero
+
+    - name: Run Bandit security scan
+      run: |
+        pip install bandit
+        bandit -r module/ agents/ tests/ main.py
+      continue-on-error: true
+
+    - name: Perform static analysis with pylint
+      run: |
+        pip install pylint
+        pylint module/ agents/ tests/ main.py
+      continue-on-error: true
+
+    - name: Check for outdated dependencies
+      run: |
+        pip install pip-review
+        pip-review --local --auto
+      continue-on-error: true
+
+    - name: Debug Information
+      run: |
+        echo "Event name: ${{ github.event_name }}"
+        echo "Is merged: ${{ github.event.pull_request.merged }}"
+        echo "Base ref: ${{ github.event.pull_request.base.ref }}"
+        echo "Head ref: ${{ github.event.pull_request.head.ref }}"
+        echo "Ref: ${{ github.ref }}"
+
+# ------------ci-cd pipeline checks ends here---------------#

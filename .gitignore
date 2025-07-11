@@ -1,0 +1,36 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+
+# Jupyter notebooks and checkpoints
+*.ipynb
+*.ipynb_checkpoints/
+
+# Pytest cache and coverage
+.cache/
+.pytest_cache/
+coverage.xml
+htmlcov/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Output and data directories
+outputs/
+data/
+
+# Logs
+*.log
+
+# VSCode/IDE configs
+.vscode/
+.idea/
+*.swp

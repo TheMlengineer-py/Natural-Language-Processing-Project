@@ -1,0 +1,9 @@
+[run]
+omit =
+    */__init__.py
+    Natural-Language-Processing-Project/tests/*
+    Natural-Language-Processing-Project/main.py
+
+[report]
+exclude_lines =
+    if __name__ == .__main__.:
