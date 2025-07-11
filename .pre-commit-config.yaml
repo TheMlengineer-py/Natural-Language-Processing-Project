@@ -12,12 +12,3 @@ repos:
     hooks:
       - id: black
 
-#  - repo: https://github.com/PyCQA/isort #todo
-#    rev: 5.13.2
-#    hooks:
-#      - id: isort
-
-#  - repo: https://github.com/pycqa/flake8 ##todo
-#    rev: 7.0.0
-#    hooks:
-#      - id: flake8
